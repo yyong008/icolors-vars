@@ -5,7 +5,7 @@
   "main": "./libs/antd.css",
   "type": "module",
   "scripts": {
-    "dev": "esno src/antd.ts",
+    "dev": "esno src/antd.ts && esno src/elm-plus/index.ts",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx .",
     "lint:fix": "eslint --ext .ts,.js,.tsx,.jsx . --fix",
     "stylelint": "stylelint ./src/**/*.{css,less,scss,sass}",
