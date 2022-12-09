@@ -1,11 +1,12 @@
 {
-  "name": "i-colors-system",
-  "version": "0.0.0",
-  "description": "css colors system",
-  "main": "./libs/antd.css",
+  "name": "icolors-vars",
+  "version": "0.0.2",
+  "description": "System-level Color System",
+  "main": "./dist/antd.css",
   "type": "module",
   "scripts": {
-    "dev": "esno src/antd.ts && esno src/elm-plus/index.ts",
+    "dev": "esno src/antd.ts && esno src/elm-plus/index.ts && esno src/tailwind/index.ts",
+    "csso": "gulp",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx .",
     "lint:fix": "eslint --ext .ts,.js,.tsx,.jsx . --fix",
     "stylelint": "stylelint ./src/**/*.{css,less,scss,sass}",
@@ -16,11 +17,12 @@
     "commit": "git add . && cz"
   },
   "keywords": [],
-  "author": "",
+  "author": "magesium",
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@types/fs-extra": "^9.0.13",
     "@types/node": "18.8.1",
     "@types/prettier": "^2.7.1",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
@@ -30,6 +32,10 @@
     "eslint": "^8.22.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "esno": "^0.16.3",
+    "fs-extra": "^11.1.0",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
@@ -43,10 +49,5 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  },
-  "dependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "esno": "^0.16.3",
-    "fs-extra": "^11.1.0"
   }
 }
