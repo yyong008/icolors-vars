@@ -24,17 +24,20 @@ Sometimes, we need a design system where users can get the job done quickly. Use
 
 - antd
 - tailwind
+- elm-plus
+- material-ui
 
 ## Use
 
 - iColorsSystem/antd
 
 ```jsx
-import 'iColorsSystem/antd'
+import 'iColorsSystem/antd.css'
 ```
 
 ```css
 div {
   colors: var(--i-antd-red-100);
+  background-color: var(--i-mui-redA400);
 }
 ```
