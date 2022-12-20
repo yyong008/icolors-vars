@@ -1,11 +1,13 @@
 # Colors System
 
+- [中文文档](./README-CN.md)
+
 ## Installation
 
 ```sh
-npm install i-colors-var
-pnpm install i-colors-var
-yarn add i-colors-var
+npm install icolors-var
+pnpm install icolors-var
+yarn add icolors-var
 ```
 
 ## Design motivation
@@ -29,15 +31,28 @@ Sometimes, we need a design system where users can get the job done quickly. Use
 
 ## Use
 
-- iColorsSystem/antd
+- icolors-vars in React main entry file
 
 ```jsx
-import 'iColorsSystem/antd.css'
+import 'icolors-vars' // current is antd
+import 'icolors-vars/dist/antd.css' // antd.css
+import 'icolors-vars/dist/tailwind.css' // tailwind.css
+import 'icolors-vars/dist/mui.css' // mui.css
+import 'icolors-vars/dist/elm-plus.css' // elm-plus.css
 ```
 
 ```css
 div {
   colors: var(--i-antd-red-100);
-  background-color: var(--i-mui-redA400);
+  background-color: var(--i-mui-red-A400);
 }
 ```
+
+## TODO
+
+- add other popular colors system
+- adjust usage methods and make it easyer
+
+## Note
+
+At present, references in the dist directory are used, and in the future, the dist file will be removed to make the reference more simple and reasonable

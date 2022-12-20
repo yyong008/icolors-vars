@@ -1,7 +1,7 @@
 {
   "name": "icolors-vars",
-  "version": "0.0.5",
-  "description": "System-level Color System",
+  "version": "0.0.6",
+  "description": "System-level Color System Css Variables, fast and happy to use it",
   "main": "./dist/antd.css",
   "type": "module",
   "scripts": {
@@ -51,6 +51,7 @@
     }
   },
   "files": [
+    "libs/",
     "dist/",
     "README.md",
     "README-CN.md"
