@@ -1,4 +1,3 @@
-import fs from 'node:fs'
 import fse from 'fs-extra'
 import { systemColors } from './colors'
 import prettier from 'prettier'
@@ -33,7 +32,7 @@ const __content = `
 `
 
 const content = prettier.format(__content, { parser: 'css' })
-const p = path.join(__dirname + '/../libs/antd.css')
+const p = path.join(__dirname + '/../../libs/antd.css')
 
 fse.ensureFileSync(p)
 fse.writeFileSync(p, content)

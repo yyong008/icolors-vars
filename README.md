@@ -12,8 +12,6 @@ yarn add icolors-var
 
 ## Design motivation
 
-有时候，我们需要一个设计系统，用户快速完成工作。使用市面现有的颜色设计系统，熟悉快捷配色。
-
 Sometimes, we need a design system where users can get the job done quickly. Use the existing color design system on the market and get familiar with quick color matching.
 
 ## Naming
@@ -29,16 +27,16 @@ Sometimes, we need a design system where users can get the job done quickly. Use
 - elm-plus
 - material-ui
 
-## Use
+## Use in CSS
 
 - icolors-vars in React main entry file
 
 ```jsx
 import 'icolors-vars' // current is antd
-import 'icolors-vars/dist/antd.css' // antd.css
-import 'icolors-vars/dist/tailwind.css' // tailwind.css
-import 'icolors-vars/dist/mui.css' // mui.css
-import 'icolors-vars/dist/elm-plus.css' // elm-plus.css
+import 'icolors-vars/antd.css' // antd.css
+import 'icolors-vars/tailwind.css' // tailwind.css
+import 'icolors-vars/mui.css' // mui.css
+import 'icolors-vars/elm-plus.css' // elm-plus.css
 ```
 
 ```css
@@ -48,10 +46,25 @@ div {
 }
 ```
 
-## TODO
+## Use in javascript runtime
 
-- add other popular colors system
-- adjust usage methods and make it easyer
+```ts
+import colors from './colors.js'
+import { colors as antdColors } from './antd.colors.js'
+import { colors as elmPlusColors } from './elm-plus.colors.js'
+import { colors as muiColors } from './mui.colors.js'
+import { colors as tailwindColors } from './tailwind.colors.js'
+
+const c1 = colors.antd.blueColors100
+const c2 = colors.elmPlus.baseColors100
+const c3 = colors.mui.amberColors100
+const c4 = colors.tailWind.amberColors100
+
+const ac1 = antdColors.blueColors100
+const ac2 = elmPlusColors.baseColors100
+const ac3 = muiColors.amberColors100
+const ac4 = tailwindColors.amberColors100
+```
 
 ## Note
 

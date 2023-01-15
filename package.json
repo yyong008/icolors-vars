@@ -2,11 +2,17 @@
   "name": "icolors-vars",
   "version": "0.0.6",
   "description": "System-level Color System Css Variables, fast and happy to use it",
-  "main": "./dist/antd.css",
+  "main": "./antd.css",
   "type": "module",
   "scripts": {
-    "dev": "esno src/antd.ts && esno src/elm-plus/index.ts && esno src/tailwind/index.ts && esno src/material-ui/index.ts",
-    "csso": "gulp",
+    "gn:runtime": "tsc src/main.colors.ts",
+    "gn:antd": "esno src/antd/index.ts",
+    "gn:elm-plus": "esno src/elm-plus/index.ts",
+    "gn:tailwind": "esno src/tailwind/index.ts",
+    "gn:mui": "esno src/material-ui/index.ts",
+    "dev": "npm run gn:antd && npm run gn:elm-plus && npm run gn:tailwind && npm run gn:mui",
+    "gulp": "gulp",
+    "rollup": "rollup -w -c",
     "lint": "eslint --ext .ts,.js,.tsx,.jsx .",
     "lint:fix": "eslint --ext .ts,.js,.tsx,.jsx . --fix",
     "stylelint": "stylelint ./src/**/*.{css,less,scss,sass}",
@@ -16,7 +22,16 @@
     "postinstallmac": "git config core.hooksPath .husky && chmod 777 .husky/*",
     "commit": "git add . && cz"
   },
-  "keywords": [],
+  "keywords": [
+    "css",
+    "system",
+    "system-css",
+    "antd",
+    "elm",
+    "elm-plus",
+    "tailwind",
+    "material-ui"
+  ],
   "author": "magesium",
   "license": "MIT",
   "devDependencies": {
@@ -35,6 +50,7 @@
     "esno": "^0.16.3",
     "fs-extra": "^11.1.0",
     "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
     "gulp-csso": "^4.0.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
@@ -43,7 +59,7 @@
     "stylelint-config-prettier": "9.0.3",
     "stylelint-prettier": "2.0.0",
     "ts-node": "10.9.1",
-    "typescript": "^4.8.2"
+    "typescript": "^4.9.4"
   },
   "config": {
     "commitizen": {
@@ -51,8 +67,15 @@
     }
   },
   "files": [
-    "libs/",
-    "dist/",
+    "mui.css",
+    "antd.css",
+    "elm-plus.css",
+    "tailwind.css",
+    "colors.js",
+    "antd.colors.js",
+    "elm-plus.colors.js",
+    "mui.colors.js",
+    "tailwind.colors.js",
     "README.md",
     "README-CN.md"
   ],
@@ -64,5 +87,14 @@
     "url": "git+https://github.com/yyong008/iColorsSystem.git",
     "branch": "master",
     "platform": "github"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "rollup": "^3.10.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "s": "^1.0.0"
   }
 }
