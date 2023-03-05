@@ -1,6 +1,6 @@
 {
   "name": "icolors-vars",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "System-level Color System Css Variables, fast and happy to use it",
   "main": "./antd.css",
   "type": "module",
@@ -91,10 +91,9 @@
   "dependencies": {
     "@rollup/plugin-commonjs": "^24.0.0",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-terser": "^0.4.0",
     "rollup": "^3.10.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.34.1",
-    "s": "^1.0.0"
+    "rollup-plugin-typescript2": "^0.34.1"
   }
 }
