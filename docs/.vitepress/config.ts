@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "icolors-systems",
   description: "System-level Color System Css Variables, fast and happy to use it",
+  base: '/icolors-vars/',
   themeConfig: {
     nav: [
       { text: 'Home', link: './' },
