@@ -3,7 +3,7 @@ export const systemColors = {
     brandColor1000: '#409EFF'
   },
   secondaryColor: {
-    secondaryColor100: '#67C23A', // Success
+    secondaryColor100: '#67C23A',
     secondaryColor200: '#E6A23C',
     secondaryColor300: '#F56C6C',
     secondaryColor400: '#909399'
