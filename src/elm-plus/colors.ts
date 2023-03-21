@@ -1,50 +1,76 @@
-export const systemColors = {
-  brandColor: {
-    brandColor1000: '#409EFF'
-  },
-  secondaryColor: {
-    secondaryColor100: '#67C23A',
-    secondaryColor200: '#E6A23C',
-    secondaryColor300: '#F56C6C',
-    secondaryColor400: '#909399'
-  },
-  textColors: {
-    textColors100: '#E5EAF3',
-    textColors200: '#CFD3DC',
-    textColors300: '#A3A6AD',
-    textColors400: '#8D9095',
-    textColors500: '#6C6E72'
-  },
-  borderColors: {
-    borderColors100: '#636466',
-    borderColors200: '#58585B',
-    borderColors300: '#4C4D4F',
-    borderColors400: '#414243',
-    borderColors500: '#363637',
-    borderColors600: '#2B2B2C'
-  },
-  fillColors: {
-    fillColors100: '#424243',
-    fillColors200: '#39393A',
-    fillColors300: '#303030',
-    fillColors400: '#262727',
-    fillColors500: '#1D1D1D',
-    fillColors600: '#191919'
-  },
-  baseColors: {
-    baseColors100: '#000000',
-    baseColors200: '#FFFFFF',
-    baseColors300: '#0A0A0A',
-    baseColors400: '#141414',
-    baseColors500: '#1D1E1F'
-  }
+const brand = [...new Array(9).fill(''), '#409EFF']
+const secondary = [
+  '#67C23A',
+  '#E6A23C',
+  '#F56C6C',
+  '#909399',
+  ...new Array(6).fill('')
+]
+const text = [
+  '#E5EAF3',
+  '#CFD3DC',
+  '#A3A6AD',
+  '#8D9095',
+  '#6C6E72',
+  ...new Array(5).fill('')
+]
+const border = [
+  '#636466',
+  '#58585B',
+  '#4C4D4F',
+  '#414243',
+  '#363637',
+  '#2B2B2C',
+  ...new Array(5).fill('')
+]
+const fill = [
+  '#424243',
+  '#39393A',
+  '#303030',
+  '#262727',
+  '#1D1D1D',
+  '#191919',
+  ...new Array(4).fill('')
+]
+
+const base = [
+  '#000000',
+  '#FFFFFF',
+  '#0A0A0A',
+  '#141414',
+  '#1D1E1F',
+  ...new Array(5).fill('')
+]
+
+const mmap = {
+  idx0: '100',
+  idx1: '200',
+  idx2: '300',
+  idx3: '400',
+  idx4: '500',
+  idx5: '600',
+  idx6: '700',
+  idx7: '800',
+  idx8: '900',
+  idx9: '1000'
 }
 
-export const colors = {
-  ...systemColors.brandColor,
-  ...systemColors.borderColors,
-  ...systemColors.baseColors,
-  ...systemColors.fillColors,
-  ...systemColors.secondaryColor,
-  ...systemColors.textColors
+/**
+ * by mmap and color index, get color level hex
+ * @param idx colors index color array
+ * @returns { number } color hex
+ */
+export const getLevelByIdx = (idx) => {
+  return mmap[`idx${idx}`]
 }
+
+const colors = {
+  brand,
+  secondary,
+  text,
+  border,
+  fill,
+  base
+}
+
+export default colors

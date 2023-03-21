@@ -1,177 +1,214 @@
-export const systemColors = {
-  blueColors: {
-    blueColors100: '#e6f7ff',
-    blueColors200: '#bae7ff',
-    blueColors300: '#91d5ff',
-    blueColors400: '#69c0ff',
-    blueColors500: '#40a9ff',
-    blueColors600: '#1890ff',
-    blueColors700: '#096dd9',
-    blueColors800: '#0050b3',
-    blueColors900: '#003a8c',
-    blueColors1000: '#002766'
-  },
-  geekBlueColors: {
-    geekBlueColors100: '#f0f5ff',
-    geekBlueColors200: '#d6e4ff',
-    geekBlueColors300: '#adc6ff',
-    geekBlueColors400: '#85a5ff',
-    geekBlueColors500: '#597ef7',
-    geekBlueColors600: '#2f54eb',
-    geekBlueColors700: '#1d39c4',
-    geekBlueColors800: '#10239e',
-    geekBlueColors900: '#061178',
-    geekBlueColors1000: '#030852'
-  },
-  cyanColors: {
-    cyanColors100: '#e6fffb',
-    cyanColors200: '#b5f5ec',
-    cyanColors300: '#87e8de',
-    cyanColors400: '#5cdbd3',
-    cyanColors500: '#36cfc9',
-    cyanColors600: '#13c2c2',
-    cyanColors700: '#08979c',
-    cyanColors800: '#006d75',
-    cyanColors900: '#00474f',
-    cyanColors1000: '#002329'
-  },
-  goldColors: {
-    goldColors100: '#fffbe6',
-    goldColors200: '#fff1b8',
-    goldColors300: '#ffe58f',
-    goldColors400: '#ffd666',
-    goldColors500: '#ffc53d',
-    goldColors600: '#faad14',
-    goldColors700: '#d48806',
-    goldColors800: '#ad6800',
-    goldColors900: '#874d00',
-    goldColors1000: '#613400'
-  },
-  grayColors: {
-    grayColors100: '#ffffff',
-    grayColors200: '#fafafa',
-    grayColors300: '#f5f5f5',
-    grayColors400: '#f0f0f0',
-    grayColors500: '#d9d9d9',
-    grayColors600: '#bfbfbf',
-    grayColors700: '#8c8c8c',
-    grayColors800: '#595959',
-    grayColors900: '#434343',
-    grayColors1000: '#262626',
-    grayColors1100: '#1f1f1f',
-    grayColors1200: '#141414',
-    grayColors1300: '#000000'
-  },
-  greenColors: {
-    greenColors100: '#f6ffed',
-    greenColors200: '#d9f7be',
-    greenColors300: '#b7eb8f',
-    greenColors400: '#95de64',
-    greenColors500: '#73d13d',
-    greenColors600: '#52c41a',
-    greenColors700: '#389e0d',
-    greenColors800: '#237804',
-    greenColors900: '#135200',
-    greenColors1000: '#092b00'
-  },
-  limeColors: {
-    limeColors100: '#fcffe6',
-    limeColors200: '#f4ffb8',
-    limeColors300: '#eaff8f',
-    limeColors400: '#d3f261',
-    limeColors500: '#bae637',
-    limeColors600: '#a0d911',
-    limeColors700: '#7cb305',
-    limeColors800: '#5b8c00',
-    limeColors900: '#3f6600',
-    limeColors1000: '#254000'
-  },
-  magentaColors: {
-    magentaColors100: '#fff0f6',
-    magentaColors200: '#ffd6e7',
-    magentaColors300: '#ffadd2',
-    magentaColors400: '#ff85c0',
-    magentaColors500: '#f759ab',
-    magentaColors600: '#eb2f96',
-    magentaColors700: '#c41d7f',
-    magentaColors800: '#9e1068',
-    magentaColors900: '#780650',
-    magentaColors1000: '#520339'
-  },
-  orangeColors: {
-    orangeColors100: '#fff7e6',
-    orangeColors200: '#ffe7ba',
-    orangeColors300: '#ffd591',
-    orangeColors400: '#ffc069',
-    orangeColors500: '#ffa940',
-    orangeColors600: '#fa8c16',
-    orangeColors700: '#d46b08',
-    orangeColors800: '#ad4e00',
-    orangeColors900: '#873800',
-    orangeColors1000: '#612500'
-  },
-  purpleColors: {
-    purpleColors100: '#f9f0ff',
-    purpleColors200: '#efdbff',
-    purpleColors300: '#d3adf7',
-    purpleColors400: '#b37feb',
-    purpleColors500: '#9254de',
-    purpleColors600: '#722ed1',
-    purpleColors700: '#531dab',
-    purpleColors800: '#391085',
-    purpleColors900: '#22075e',
-    purpleColors1000: '#120338'
-  },
-  redColors: {
-    redColors100: '#fff1f0',
-    redColors200: '#ffccc7',
-    redColors300: '#ffa39e',
-    redColors400: '#ff7875',
-    redColors500: '#ff4d4f',
-    redColors600: '#f5222d',
-    redColors700: '#cf1322',
-    redColors800: '#a8071a',
-    redColors900: '#820014',
-    redColors1000: '#5c0011'
-  },
-  volcanoColors: {
-    volcanoColors100: '#fff2e8',
-    volcanoColors200: '#ffd8bf',
-    volcanoColors300: '#ffbb96',
-    volcanoColors400: '#ff9c6e',
-    volcanoColors500: '#ff7a45',
-    volcanoColors600: '#fa541c',
-    volcanoColors700: '#d4380d',
-    volcanoColors800: '#ad2102',
-    volcanoColors900: '#871400',
-    volcanoColors1000: '#610b00'
-  },
-  yellowColors: {
-    yellowColors100: '#feffe6',
-    yellowColors200: '#ffffb8',
-    yellowColors300: '#fffb8f',
-    yellowColors400: '#fff566',
-    yellowColors500: '#ffec3d',
-    yellowColors600: '#fadb14',
-    yellowColors700: '#d4b106',
-    yellowColors800: '#ad8b00',
-    yellowColors900: '#876800',
-    yellowColors1000: '#614700'
-  }
+export const blue = [
+  '#e6f7ff',
+  '#bae7ff',
+  '#91d5ff',
+  '#69c0ff',
+  '#40a9ff',
+  '#1890ff',
+  '#096dd9',
+  '#0050b3',
+  '#003a8c',
+  '#002766'
+]
+
+export const geekBlue = [
+  '#f0f5ff',
+  '#d6e4ff',
+  '#adc6ff',
+  '#85a5ff',
+  '#597ef7',
+  '#2f54eb',
+  '#1d39c4',
+  '#10239e',
+  '#061178',
+  '#030852'
+]
+
+export const cyan = [
+  '#e6fffb',
+  '#b5f5ec',
+  '#87e8de',
+  '#5cdbd3',
+  '#36cfc9',
+  '#13c2c2',
+  '#08979c',
+  '#006d75',
+  '#00474f',
+  '#002329'
+]
+
+export const gold = [
+  '#fffbe6',
+  '#fff1b8',
+  '#ffe58f',
+  '#ffd666',
+  '#ffc53d',
+  '#faad14',
+  '#d48806',
+  '#ad6800',
+  '#874d00',
+  '#613400'
+]
+
+export const gray = [
+  '#ffffff',
+  '#fafafa',
+  '#f5f5f5',
+  '#f0f0f0',
+  '#d9d9d9',
+  '#bfbfbf',
+  '#8c8c8c',
+  '#595959',
+  '#434343',
+  '#262626',
+  '#1f1f1f',
+  '#141414',
+  '#000000'
+]
+
+export const green = [
+  '#f6ffed',
+  '#d9f7be',
+  '#b7eb8f',
+  '#95de64',
+  '#73d13d',
+  '#52c41a',
+  '#389e0d',
+  '#237804',
+  '#135200',
+  '#092b00'
+]
+
+export const lime = [
+  '#fcffe6',
+  '#f4ffb8',
+  '#eaff8f',
+  '#d3f261',
+  '#bae637',
+  '#a0d911',
+  '#7cb305',
+  '#5b8c00',
+  '#3f6600',
+  '#254000'
+]
+
+export const magenta = [
+  '#fff0f6',
+  '#ffd6e7',
+  '#ffadd2',
+  '#ff85c0',
+  '#f759ab',
+  '#eb2f96',
+  '#c41d7f',
+  '#9e1068',
+  '#780650',
+  '#520339'
+]
+
+export const orange = [
+  '#fff7e6',
+  '#ffe7ba',
+  '#ffd591',
+  '#ffc069',
+  '#ffa940',
+  '#fa8c16',
+  '#d46b08',
+  '#ad4e00',
+  '#873800',
+  '#612500'
+]
+
+export const purple = [
+  '#f9f0ff',
+  '#efdbff',
+  '#d3adf7',
+  '#b37feb',
+  '#9254de',
+  '#722ed1',
+  '#531dab',
+  '#391085',
+  '#22075e',
+  '#120338'
+]
+
+export const red = [
+  '#fff1f0',
+  '#ffccc7',
+  '#ffa39e',
+  '#ff7875',
+  '#ff4d4f',
+  '#f5222d',
+  '#cf1322',
+  '#a8071a',
+  '#820014',
+  '#5c0011'
+]
+
+export const volcano = [
+  '#fff2e8',
+  '#ffd8bf',
+  '#ffbb96',
+  '#ff9c6e',
+  '#ff7a45',
+  '#fa541c',
+  '#d4380d',
+  '#ad2102',
+  '#871400',
+  '#610b00'
+]
+
+export const yellow = [
+  '#feffe6',
+  '#ffffb8',
+  '#fffb8f',
+  '#fff566',
+  '#ffec3d',
+  '#fadb14',
+  '#d4b106',
+  '#ad8b00',
+  '#876800',
+  '#614700'
+]
+
+const mmap = {
+  idx0: '100',
+  idx1: '200',
+  idx2: '300',
+  idx3: '400',
+  idx4: '500',
+  idx5: '600',
+  idx6: '700',
+  idx7: '800',
+  idx8: '900',
+  idx9: '1000',
+  idx10: '1100',
+  idx11: '1200',
+  idx12: '1300'
 }
 
-export const colors = {
-  ...systemColors.blueColors,
-  ...systemColors.geekBlueColors,
-  ...systemColors.cyanColors,
-  ...systemColors.goldColors,
-  ...systemColors.grayColors,
-  ...systemColors.greenColors,
-  ...systemColors.limeColors,
-  ...systemColors.magentaColors,
-  ...systemColors.orangeColors,
-  ...systemColors.purpleColors,
-  ...systemColors.redColors,
-  ...systemColors.volcanoColors,
-  ...systemColors.yellowColors
+/**
+ * by mmap and color index, get color level hex
+ * @param idx colors index color array
+ * @returns { number } color hex
+ */
+export const getLevelByIdx = (idx) => {
+  return mmap[`idx${idx}`]
 }
+
+const colors = {
+  blue,
+  geekBlue,
+  cyan,
+  gold,
+  gray,
+  green,
+  lime,
+  magenta,
+  orange,
+  purple,
+  red,
+  volcano,
+  yellow
+}
+
+export default colors
