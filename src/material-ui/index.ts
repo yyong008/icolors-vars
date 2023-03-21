@@ -1,40 +1,67 @@
-import fse from 'fs-extra'
-import { systemColors } from './colors'
-import prettier from 'prettier'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import defineVars from 'iesmo'
 
-const colors = Object.keys(systemColors)
-const prefix = '--i-mui-'
-const cssVariables: any[] = []
+// colors
+import colors from './colors'
 
-// tailwindcss v3.2.4
+// constant
+import { MUI_PREFIX } from '../utils/constants'
+import { destDir } from '../utils/env'
 
-colors.forEach((c) => {
-  const cKeys = Object.keys((systemColors as any)[c])
+// utils
+import formatCss from '../utils/format'
+import gnFile, { gnCssRootVars, gnCssVarAttrs } from '../utils/gnFile'
+import { getLevelByIdx } from './colors'
 
-  cKeys.forEach((cc) => {
-    const _key = `${cc.split('Colors').join('-')}`
+const { __dirname } = defineVars(import.meta)
 
-    cssVariables.push(`${prefix}${_key}: ${systemColors[c][cc]};`)
+/**
+ * 生成 css 内容
+ */
+function gnCSSContent() {
+  const colorsKind = Object.keys(colors) // [blue, green, yellow, /*...*/]
+  let cssVarsStrs = ''
+
+  colorsKind.forEach((ck) => {
+    const cKeys = colors[ck]
+
+    cKeys.forEach((_, idx) => {
+      cssVarsStrs += gnCssVarAttrs(
+        MUI_PREFIX,
+        colors,
+        ck,
+        getLevelByIdx(idx),
+        idx
+      )
+    })
   })
-})
 
-const _content = cssVariables.reduce((p, cv) => {
-  return `${p};${cv}`
-}, '')
-
-const __content = `
-:root {
-  ${_content}
+  // format and return
+  return formatCss(gnCssRootVars(cssVarsStrs))
 }
-`
 
-const content = prettier.format(__content, { parser: 'css' })
-const p = path.join(__dirname + '/../../libs/mui.css')
+export default function createMuiCssFile() {
+  const content = gnCSSContent()
+  const targetPath = path.join(__dirname + `/../../${destDir}/mui.css`)
 
-fse.ensureFileSync(p)
-fse.writeFileSync(p, content)
+  gnFile(targetPath, content)
+}
+
+export function createMuiColorRuntime() {
+  const _colors = {}
+  const colorsKind = Object.keys(colors)
+
+  colorsKind.forEach((ck) => {
+    const cKeys = colors[ck]
+    _colors[ck] = {}
+
+    cKeys.forEach((_, idx) => {
+      if (colors[ck][idx].length > 6) {
+        _colors[ck][getLevelByIdx(idx)] = colors[ck][idx]
+      }
+    })
+  })
+
+  return _colors
+}

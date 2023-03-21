@@ -6,9 +6,9 @@
 ## Installation
 
 ```sh
-npm install icolors-var
-pnpm install icolors-var
-yarn add icolors-var
+npm install icolors-vars
+pnpm install icolors-vars
+yarn add icolors-vars
 ```
 
 ## Design motivation
@@ -50,21 +50,29 @@ div {
 ## Use in javascript runtime
 
 ```ts
-import colors from './colors.js'
-import { colors as antdColors } from './antd.colors.js'
-import { colors as elmPlusColors } from './elm-plus.colors.js'
-import { colors as muiColors } from './mui.colors.js'
-import { colors as tailwindColors } from './tailwind.colors.js'
+import colors from 'icolors-vars/index.js'
+import antd from 'icolors-vars/antd.js'
+import elmPlus from 'icolors-vars/elm-plus.js'
+import mui from 'icolors-vars/mui.js'
+import tailwind from 'icolors-vars/tailwind.js'
 
-const c1 = colors.antd.blueColors100
-const c2 = colors.elmPlus.baseColors100
-const c3 = colors.mui.amberColors100
-const c4 = colors.tailWind.amberColors100
+const c1 = colors.antd.100
+const c2 = colors.elmPlus.100
+const c3 = colors.mui.100
+const c4 = colors.tailWind.100
 
-const ac1 = antdColors.blueColors100
-const ac2 = elmPlusColors.baseColors100
-const ac3 = muiColors.amberColors100
-const ac4 = tailwindColors.amberColors100
+const ac1 = antd.100
+const ac2 = elmPlus.100
+const ac3 = mui.100
+const ac4 = tailwind.100
+```
+
+## color utils
+
+```js
+import { invertHexColor } form 'icolors-vars'
+
+const writeInvertHexColor = invertHexColor('#000000')
 ```
 
 ## Note

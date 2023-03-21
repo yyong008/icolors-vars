@@ -1,38 +1,87 @@
-import fse from 'fs-extra'
-import { systemColors } from './colors'
-import prettier from 'prettier'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import defineVars from 'iesmo'
 
-const colors = Object.keys(systemColors)
-const prefix = '--i-antd-'
-const cssVariables: any[] = []
+// colors
+import colors from './colors'
 
-colors.forEach((c) => {
-  const cKeys = Object.keys((systemColors as any)[c])
+// constant
+import { ANTD_PREFIX } from '../utils/constants'
+import { destDir } from '../utils/env'
 
-  cKeys.forEach((cc) => {
-    const _key = `${cc.split('Colors').join('-')}`
+// utils
+import formatCss from '../utils/format'
+import gnFile, { gnCssRootVars, gnCssVarAttrs } from '../utils/gnFile'
+import { getLevelByIdx } from './colors'
 
-    cssVariables.push(`${prefix}${_key}: ${systemColors[c][cc]};`)
+const { __dirname } = defineVars(import.meta)
+
+/**
+ * 生成 css 内容
+ */
+function gnCSSContent() {
+  const colorsKind = Object.keys(colors) // [blue, green, yellow, /*...*/]
+  let cssVarsStrs = ''
+
+  colorsKind.forEach((ck) => {
+    const cKeys = colors[ck]
+
+    cKeys.forEach((_, idx) => {
+      if (colors[ck][idx].length > 6) {
+        cssVarsStrs += gnCssVarAttrs(
+          ANTD_PREFIX,
+          colors,
+          ck,
+          getLevelByIdx(idx),
+          idx
+        )
+      }
+    })
   })
-})
 
-const _content = cssVariables.reduce((p, cv) => {
-  return `${p};${cv}`
-}, '')
-
-const __content = `
-:root {
-  ${_content}
+  return formatCss(gnCssRootVars(cssVarsStrs))
 }
-`
 
-const content = prettier.format(__content, { parser: 'css' })
-const p = path.join(__dirname + '/../../libs/antd.css')
+export default function createAntdCssFile() {
+  const content = gnCSSContent()
+  const targetPath = path.join(__dirname + `/../../${destDir}/antd.css`)
+  gnFile(targetPath, content)
+}
 
-fse.ensureFileSync(p)
-fse.writeFileSync(p, content)
+export function createAntdJsFile() {
+  const antdColors = {}
+  const colorsKind = Object.keys(colors)
+
+  colorsKind.forEach((ck) => {
+    const cKeys = colors[ck]
+    antdColors[ck] = {}
+
+    cKeys.forEach((_, idx) => {
+      if (colors[ck][idx].length > 6) {
+        antdColors[ck][getLevelByIdx(idx)] = colors[ck][idx]
+      }
+    })
+  })
+
+  const content = 'let content = ' + JSON.stringify(antdColors)
+  const targetPath = path.join(__dirname + `/../../${destDir}/antd.js`)
+  gnFile(targetPath, content)
+}
+
+export function createAntdColorRuntime() {
+  const _colors = {}
+  const colorsKind = Object.keys(colors)
+
+  colorsKind.forEach((ck) => {
+    const cKeys = colors[ck]
+    _colors[ck] = {}
+
+    cKeys.forEach((_, idx) => {
+      if (colors[ck][idx].length > 6) {
+        _colors[ck][getLevelByIdx(idx)] = colors[ck][idx]
+      }
+    })
+  })
+
+  return _colors
+}
